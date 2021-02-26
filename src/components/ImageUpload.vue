@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    <router-link :to="{name:'ImageHandle'}">이미지링크</router-link>
     <h1>파일 리스트</h1>
     <ul>
       <li v-for="(item,index) in imgFileList" :key="index">
@@ -8,7 +7,7 @@
         <v-btn @click="deleteImgFile(item.Key)">Delete</v-btn>
       </li>
     </ul>
-    <h1>파일 업로드</h1>
+    <h1>파일 업로드222</h1>
     <div><img :src="imgFileURL" alt=""></div>
     <input id="file-selector" ref="imgFile" type="file" @change="selectFile()" />
     <v-btn color="primary" @click="uploadFile">upload</v-btn>
