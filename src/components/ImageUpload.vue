@@ -1,8 +1,12 @@
 <template>
   <v-container>
     <h1>파일 리스트</h1>
+    <!-- <img src="https://photo-2m.s3.ap-northeast-2.amazonaws.com/img_obj.jpg" alt="abc" /> -->
     <ul>
       <li v-for="(item,index) in imgFileList" :key="index">
+        <div class="img">
+          <img :src="`https://${albumBucketName}.s3.${bucketRegion}.amazonaws.com/${item.Key}`" alt="abc" />
+        </div>
         {{index + 1}}. {{item.Key}} {{item.LastModified}}
         <v-btn @click="deleteImgFile(item.Key)">Delete</v-btn>
       </li>
@@ -155,3 +159,24 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+// @import "@/assets/scss/_variabled.scss";
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  li {
+    
+    // border: 1px solid $primary-color;
+    border: 1px solid #999;
+  }
+}
+ul li {
+  width: 300px;
+}
+ul li .img img {
+    max-width: 100%;
+}
+
+</style>
